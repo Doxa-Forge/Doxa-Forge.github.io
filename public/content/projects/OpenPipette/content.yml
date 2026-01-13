@@ -1,0 +1,130 @@
+# OpenPipette Project Content
+# Edit this file to update the OpenPipette project page content
+
+project:
+  name: "OpenPipette"
+  github_url: "https://github.com/Doxa-Forge/OpenPipette"
+  organization: "Doxa-Forge"
+  institution: "UHasselt"
+  contact_email: "contact@openpipette.org"
+
+status_bar:
+  phase: "Planning"
+
+navigation:
+  back_to_projects: "← Projects"
+  links:
+    about: "About"
+    how_it_works: "How it works"
+    impact: "Impact"
+    join: "Join"
+    wiki: "Wiki"
+
+hero:
+  headline: "Open source medical equipment can save lives."
+  subheadline: "Especially when it's affordable."
+  description: "We're building validated, open-source pipettes that cost 90% less than commercial alternatives. Our modular designs enable labs and clinics worldwide to access reliable, accurate pipetting tools without breaking the bank."
+  cta_primary:
+    text: "Get early access"
+  cta_secondary:
+    text: "Partner with us"
+  features:
+    - "90% cost reduction"
+    - "Fully open source"
+    - "Lab-validated accuracy"
+
+social_proof:
+  items:
+    - "Student-led innovation at UHasselt"
+    - "Open designs on GitHub"
+    - "Target: 96-channel + modular handhelds"
+
+features:
+  title: "Why it matters"
+  items:
+    - title: "90% cost reduction"
+      description: "Our open-source designs eliminate proprietary markups, reducing pipette costs from thousands to hundreds of dollars. This makes critical lab equipment accessible to underfunded research and healthcare facilities."
+    - title: "Fully open source"
+      description: "Every design file, firmware, and validation protocol is publicly available. Labs can verify, modify, and manufacture pipettes independently—no vendor lock-in, complete transparency."
+    - title: "Lab-validated accuracy"
+      description: "Rigorous gravimetric and dye-based testing ensures our pipettes meet or exceed commercial accuracy standards. All validation data is published for peer review."
+
+how_it_works:
+  title: "How it works"
+  steps:
+    - title: "Design"
+      description: "Modular CAD designs supporting 1, 8, 12, 16, and 96-channel configurations. All files released under open licenses."
+    - title: "Prototype"
+      description: "3D-printed components, open-source electronics, and firmware. Designed for local manufacturing and assembly."
+    - title: "Validate & Publish"
+      description: "Comprehensive accuracy testing with published datasets. Full calibration protocols and validation results open for review."
+
+impact:
+  title: "Open source medical equipment can save lives."
+  subtitle: "Especially when it's affordable."
+  description: "Commercial pipettes cost $2,000-$10,000. Our open-source designs reduce this to $200-$1,000—making critical lab equipment accessible to underfunded research facilities, clinics in developing regions, and educational institutions worldwide."
+  metrics:
+    - label: "Target cost reduction"
+      value: "90%"
+      note: "vs. commercial pipettes"
+    - label: "Modular configurations"
+      value: "5"
+      note: "1, 8, 12, 16, 96-channel"
+    - label: "Team members"
+      value: "auto"
+      note: "Contributors"
+      auto_calculate: true
+  cta:
+    text: "Join the team"
+    link: "#join"
+
+mailing_list:
+  title: "Get early access"
+  description: "Be the first to know when designs are released, validation results are published, and prototypes become available. Join researchers, labs, and makers building affordable medical equipment."
+  form:
+    email_label: "Email"
+    role_label: "Role"
+    country_label: "Country"
+    country_optional: "(optional)"
+    submit: "Get updates"
+    consent: "By signing up you agree to receive OpenPipette updates. We will never share your email. Read our privacy note."
+    privacy_link: "/privacy"
+  success_message: "Welcome! You're now on the list. Check your email for confirmation and early access updates."
+  error_message: "Something went wrong. Please try again or contact us directly."
+
+investors:
+  title: "Investors & Partners"
+  description: "We're seeking funding for prototype development, validation testing, and manufacturing partnerships. If you're interested in investing, piloting our designs, or partnering on production, we'd love to connect. We'll respond within 5 business days."
+  form:
+    name_label: "Full name"
+    organization_label: "Organization"
+    email_label: "Email"
+    role_label: "Role"
+    message_label: "Tell us about your interest"
+    budget_label: "Budget range"
+    file_label: "File upload"
+    file_note: "(optional: pitch deck, proposal, etc.)"
+    file_privacy_note: "Note: Files are handled securely. See our privacy policy for data handling."
+    consent_label: "I agree to be contacted"
+    submit: "Send message"
+  success_message: "Thank you! We've received your message and will follow up within 5 business days."
+  error_message: "Something went wrong. Please try again or contact us directly."
+
+team:
+  title: "Team"
+  seeking: "Seeking supervisor and clinical advisor."
+
+footer:
+  brand_name: "OpenPipette"
+  tagline: "Open source medical equipment can save lives. Especially when it's affordable."
+  resources_title: "Resources"
+  legal_title: "Legal"
+  license_title: "License"
+  license_text: "Open Hardware · CC BY-SA (or MIT for code)"
+  copyright: "OpenPipette"
+  links:
+    github: "https://github.com/Doxa-Forge/OpenPipette"
+    contact: "mailto:contact@openpipette.org"
+    privacy: "/privacy"
+    terms: "/terms"
+

@@ -1,0 +1,29 @@
+# Projects List Page Content
+# Edit this file to update the projects listing page
+
+navigation:
+  logo_alt: "Doxa Forge"
+  brand_name: "Doxa Forge"
+  links:
+    projects: "Projects"
+    github: "GitHub"
+
+header:
+  title: "Projects"
+  description: "Explore our active projects and prototypes. Each project represents an idea transformed into working software or hardware."
+
+empty_state:
+  message: "No projects yet. Check back soon!"
+
+footer:
+  brand_name: "Doxa Forge"
+  tagline: "Where curiosity shapes the future. A student-driven innovation lab."
+  resources_title: "Resources"
+  location_title: "Location"
+  location: "Belgium"
+  copyright: "Doxa Forge"
+  links:
+    github: "https://github.com/Doxa-Forge"
+    projects: "/projects"
+    contact: "mailto:mathijs.follon@gmail.com"
+

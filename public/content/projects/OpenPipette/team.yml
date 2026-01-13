@@ -1,0 +1,20 @@
+# OpenPipette Team Configuration
+# Edit this file to update team members
+
+members:
+  - name: "Mathijs Follon"
+    role: "Lead"
+    department: "Informatica"
+    age: null
+    avatar: null
+    email: null
+
+  - name: "Niels Staes"
+    role: "Co-lead"
+    department: "Industrial Engineering"
+    age: null
+    avatar: null
+    email: null
+
+seeking: "Seeking supervisor and clinical advisor."
+

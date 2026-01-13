@@ -1,0 +1,76 @@
+# Doxa Forge Landing Page Content
+# Edit this file to update the main landing page content
+
+navigation:
+  logo_alt: "Doxa Forge"
+  brand_name: "Doxa Forge"
+  links:
+    projects: "Projects"
+    github: "GitHub"
+
+hero:
+  title: "Where Ideas Take Shape"
+  subtitle: "A student-driven innovation lab"
+  description: "We turn bold ideas into working prototypes fast. From AI experiments to medical hardware, we build MVPs that could become the next big thing. No corporate red tape—just rapid iteration, real code, and startup potential."
+  cta_primary:
+    text: "Explore Projects"
+    link: "/projects"
+  cta_secondary:
+    text: "View on GitHub"
+    link: "https://github.com/Doxa-Forge"
+
+about:
+  title: "About Doxa Forge"
+  description_1: "Doxa Forge is a **student-driven innovation lab** where curiosity meets code. We're not just building projects—we're creating potential startups. Every prototype is a test: does this idea have what it takes to become a real product?"
+  description_2: "When a prototype shows promise, it can spin out into a full startup, SaaS product, or open-source project. We build fast, validate quickly, and scale what works."
+  focus_areas_title: "What We Build"
+  focus_areas:
+    - title: "Rapid Prototyping"
+      description: "Web apps, mobile apps, Electron desktop apps—from concept to working demo in weeks, not months"
+    - title: "Hardware Innovation"
+      description: "Open-source medical equipment and engineering solutions that challenge overpriced commercial alternatives"
+    - title: "SaaS MVPs"
+      description: "Planning tools, team management platforms, AI-driven workflows—validated business ideas in code"
+    - title: "AI Experiments"
+      description: "Small-scale models, smart automations, and AI enhancements that solve real problems"
+    - title: "Idea Validation"
+      description: "Turn concepts into testable software fast—build, test, iterate, or pivot"
+
+mission:
+  title: "Why Doxa Forge Exists"
+  items:
+    - title: "To Experiment"
+      description: "Turn wild ideas into working software fast. No bureaucracy, no limits—just build and see what sticks."
+    - title: "To Learn"
+      description: "Level up in coding, design, AI, and startup thinking. Real projects teach real skills."
+    - title: "To Launch"
+      description: "Build prototypes that could become real businesses. When something works, we scale it."
+
+projects_preview:
+  title: "Active Projects"
+  view_all: "See all projects →"
+  empty_message: "No projects yet. Check back soon!"
+  description: "Each project starts as an experiment. Some become startups. All are open source."
+
+get_involved:
+  title: "Join the Forge"
+  description: "We're always looking for collaborators, mentors, and fellow builders. Whether you want to contribute code, provide guidance, or bring your own ideas—let's build something together."
+  cta_primary:
+    text: "Get in Touch"
+    link: "mailto:mathijs.follon@gmail.com"
+  cta_secondary:
+    text: "View on GitHub"
+    link: "https://github.com/Doxa-Forge"
+
+footer:
+  brand_name: "Doxa Forge"
+  tagline: "Where curiosity shapes the future. Building prototypes that could become startups."
+  resources_title: "Resources"
+  location_title: "Location"
+  location: "Belgium"
+  copyright: "Doxa Forge"
+  links:
+    github: "https://github.com/Doxa-Forge"
+    projects: "/projects"
+    contact: "mailto:mathijs.follon@gmail.com"
+

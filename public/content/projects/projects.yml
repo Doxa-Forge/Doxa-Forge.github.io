@@ -1,0 +1,16 @@
+# Projects List Configuration
+# Add new projects here
+
+projects:
+  - id: "OpenPipette"
+    title: "OpenPipette"
+    description: "Open-source pipettes that cost 90% less than commercial alternatives. Validated, modular designs enabling labs worldwide to access reliable pipetting equipment without vendor lock-in."
+    tags:
+      - "Medical Equipment"
+      - "Open Source Hardware"
+      - "Lab Equipment"
+      - "UHasselt"
+    github_url: "https://github.com/Doxa-Forge/OpenPipette"
+    status: "Planning"
+    link: "/projects/OpenPipette"
+
