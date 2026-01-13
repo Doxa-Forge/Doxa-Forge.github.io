@@ -48,9 +48,9 @@ mission:
 
 projects_preview:
   title: "Active Projects"
-  view_all: "See all projects →"
+  view_all: "See all projects"
   empty_message: "No projects yet. Check back soon!"
-  description: "Each project starts as an experiment. Some become startups. All are open source."
+  description: "Each project starts as an experiment. Some become startups."
 
 get_involved:
   title: "Join the Forge"

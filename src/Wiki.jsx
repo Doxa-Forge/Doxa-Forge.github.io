@@ -15,14 +15,63 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import doxaForgeLogo from '../assets/doxa_forge_logo.png'
+import SEO from './components/SEO'
 
 // Wiki page index - update this when adding new pages
 const WIKI_PAGES = [
   { id: 'index', title: 'Wiki Home', file: 'index.md', path: '/projects/OpenPipette/wiki' },
+  { id: 'editing-guide', title: 'Editing Guide', file: 'editing-guide.md', path: '/projects/OpenPipette/wiki/editing-guide' },
   { id: 'overview', title: 'Project Overview', file: 'overview.md', path: '/projects/OpenPipette/wiki/overview' },
   { id: 'design', title: 'Design Specifications', file: 'design.md', path: '/projects/OpenPipette/wiki/design' },
   { id: 'validation', title: 'Validation Protocols', file: 'validation.md', path: '/projects/OpenPipette/wiki/validation' },
 ]
+
+/**
+ * Transform a markdown link href to a wiki route if it's a wiki page link
+ * @param {string} href - The href from the markdown link (e.g., './design.md', '../overview.md', 'design.md')
+ * @param {string} currentPageId - The current wiki page ID
+ * @returns {string|null} - The wiki route path or null if it's not a wiki page link
+ */
+function transformWikiLink(href, currentPageId) {
+  // Handle external links
+  if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:')) {
+    return null
+  }
+
+  // Handle anchor links (same page)
+  if (href.startsWith('#')) {
+    return null // Let browser handle anchor links
+  }
+
+  // Resolve relative paths
+  let resolvedPath = href
+  
+  // Handle relative paths like ./design.md or ../overview.md
+  if (href.startsWith('./')) {
+    // Remove ./ prefix
+    resolvedPath = href.substring(2)
+  } else if (href.startsWith('../')) {
+    // For now, we don't have subdirectories, but handle it anyway
+    // Remove ../ prefix - in a flat structure, this is the same as removing ./
+    resolvedPath = href.replace(/^\.\.\//, '')
+  }
+
+  // Remove .md extension if present
+  const filename = resolvedPath.replace(/\.md$/, '')
+  
+  // Find matching wiki page by filename (without extension)
+  const wikiPage = WIKI_PAGES.find(page => {
+    const pageFilename = page.file.replace(/\.md$/, '')
+    return pageFilename === filename
+  })
+
+  if (wikiPage) {
+    return wikiPage.path
+  }
+
+  // Not a wiki page link
+  return null
+}
 
 export default function Wiki() {
   const navigate = useNavigate()
@@ -93,8 +142,84 @@ export default function Wiki() {
 
   const currentPageInfo = WIKI_PAGES.find(p => p.id === currentPage)
 
+  // Helper function to generate ID from text
+  const generateId = (text) => {
+    if (typeof text === 'string') {
+      return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    }
+    if (Array.isArray(text)) {
+      return generateId(text.map(t => typeof t === 'string' ? t : '').join(''))
+    }
+    return ''
+  }
+
+  // Custom link component for markdown links
+  const WikiLink = ({ href, children, ...props }) => {
+    const wikiRoute = transformWikiLink(href, currentPage)
+    
+    if (wikiRoute) {
+      // Internal wiki link - use React Router Link
+      return (
+        <Link to={wikiRoute} className="text-teal hover:underline" {...props}>
+          {children}
+        </Link>
+      )
+    }
+    
+    // Handle anchor links with smooth scrolling
+    const isAnchor = href?.startsWith('#')
+    if (isAnchor) {
+      const handleAnchorClick = (e) => {
+        e.preventDefault()
+        const targetId = href.substring(1)
+        const element = document.getElementById(targetId)
+        if (element) {
+          const headerOffset = 120 // Account for sticky header
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+          window.scrollTo({
+            top: elementPosition - headerOffset,
+            behavior: 'smooth'
+          })
+        }
+      }
+      
+      return (
+        <a
+          href={href}
+          onClick={handleAnchorClick}
+          className="text-teal hover:underline"
+          {...props}
+        >
+          {children}
+        </a>
+      )
+    }
+    
+    // External link - use regular anchor tag
+    const isExternal = href?.startsWith('http://') || href?.startsWith('https://')
+    
+    return (
+      <a
+        href={href}
+        className="text-teal hover:underline"
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
+        {...props}
+      >
+        {children}
+      </a>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title={currentPageInfo ? `${currentPageInfo.title} - OpenPipette Wiki` : "OpenPipette Wiki"}
+        description={currentPageInfo ? `Documentation for ${currentPageInfo.title} in the OpenPipette project.` : "OpenPipette project documentation and wiki."}
+        keywords="OpenPipette, wiki, documentation, open source, medical equipment, pipette"
+        ogTitle={currentPageInfo ? `${currentPageInfo.title} - OpenPipette Wiki` : "OpenPipette Wiki"}
+        ogDescription={currentPageInfo ? `Documentation for ${currentPageInfo.title} in the OpenPipette project.` : "OpenPipette project documentation and wiki."}
+      />
       {/* Wiki Header */}
       <div className="sticky top-0 z-50 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
@@ -185,20 +310,35 @@ export default function Wiki() {
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={{
-                    h1: ({ node, ...props }) => (
-                      <h1 className="text-4xl font-heading font-bold text-dark mb-6 mt-8 first:mt-0" {...props} />
-                    ),
-                    h2: ({ node, ...props }) => (
-                      <h2 className="text-3xl font-heading font-bold text-dark mb-4 mt-8" {...props} />
-                    ),
-                    h3: ({ node, ...props }) => (
-                      <h3 className="text-2xl font-heading font-semibold text-dark mb-3 mt-6" {...props} />
-                    ),
+                    h1: ({ node, children, ...props }) => {
+                      const id = generateId(children)
+                      return (
+                        <h1 id={id} className="text-4xl font-heading font-bold text-dark mb-6 mt-8 first:mt-0 scroll-mt-32" {...props}>
+                          {children}
+                        </h1>
+                      )
+                    },
+                    h2: ({ node, children, ...props }) => {
+                      const id = generateId(children)
+                      return (
+                        <h2 id={id} className="text-3xl font-heading font-bold text-dark mb-4 mt-8 scroll-mt-32" {...props}>
+                          {children}
+                        </h2>
+                      )
+                    },
+                    h3: ({ node, children, ...props }) => {
+                      const id = generateId(children)
+                      return (
+                        <h3 id={id} className="text-2xl font-heading font-semibold text-dark mb-3 mt-6 scroll-mt-32" {...props}>
+                          {children}
+                        </h3>
+                      )
+                    },
                     p: ({ node, ...props }) => (
                       <p className="text-muted leading-relaxed mb-4" {...props} />
                     ),
-                    a: ({ node, ...props }) => (
-                      <a className="text-teal hover:underline" {...props} />
+                    a: ({ node, href, children, ...props }) => (
+                      <WikiLink href={href} {...props}>{children}</WikiLink>
                     ),
                     ul: ({ node, ...props }) => (
                       <ul className="list-disc list-inside mb-4 space-y-2 text-muted" {...props} />

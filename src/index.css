@@ -1,6 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #0F1724;
+  --color-muted: #6B7280;
+  --color-teal: #0EA5A4;
+  --color-coral: #FF7A59;
+  --color-yellow: #FCD34D;
+  --color-blue: #93C5FD;
+  --color-purple: #A855F7;
+  --color-pink: #EC4899;
+  --color-orange: #FB923C;
+  
+  --font-heading: 'Poppins', 'Inter', sans-serif;
+  --font-body: 'Inter', 'Roboto', sans-serif;
+}
 
 @layer base {
   html {
@@ -8,13 +21,24 @@
   }
   
   body {
-    @apply bg-white text-dark font-body antialiased;
+    background-color: white;
+    color: var(--color-dark);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Ensure gradient text works properly */
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline-block;
   }
 }
 
@@ -45,41 +69,3 @@
 .animation-delay-4000 {
   animation-delay: 4s;
 }
-
-/* Wiki markdown styling */
-.prose {
-  @apply text-muted;
-}
-
-.prose strong {
-  @apply font-semibold text-dark;
-}
-
-.prose code {
-  @apply bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono;
-}
-
-.prose pre {
-  @apply bg-gray-100 p-4 rounded-lg overflow-x-auto;
-}
-
-.prose pre code {
-  @apply bg-transparent p-0;
-}
-
-.prose table {
-  @apply w-full border-collapse mb-4;
-}
-
-.prose th {
-  @apply border border-gray-300 px-4 py-2 bg-gray-50 font-semibold text-left;
-}
-
-.prose td {
-  @apply border border-gray-300 px-4 py-2;
-}
-
-.prose hr {
-  @apply border-t border-gray-200 my-8;
-}
-
