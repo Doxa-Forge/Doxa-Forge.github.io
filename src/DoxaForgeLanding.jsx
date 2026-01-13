@@ -35,16 +35,6 @@ export default function DoxaForgeLanding() {
     loadData()
   }, [])
 
-  // #region agent log
-  useEffect(() => {
-    if (loading || !content) return
-    setTimeout(() => {
-      const button = document.querySelector('a[href="/projects"], Link[to="/projects"]')
-      const computedStyle = button ? window.getComputedStyle(button) : null
-      fetch('http://127.0.0.1:7243/ingest/8b755312-3682-4361-b7b5-3e08b2bcd949',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'DoxaForgeLanding.jsx:120',message:'Button visibility check',data:{hasButton:!!button,backgroundColor:computedStyle?.backgroundColor,color:computedStyle?.color,display:computedStyle?.display,opacity:computedStyle?.opacity,textContent:button?.textContent?.substring(0,20)},timestamp:Date.now(),sessionId:'debug-session',runId:'run3',hypothesisId:'H6'})}).catch(()=>{})
-    }, 200)
-  }, [loading, content])
-  // #endregion
 
   if (loading) {
     return (
