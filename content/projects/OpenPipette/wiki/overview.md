@@ -7,7 +7,7 @@ OpenPipette aims to develop open-source, affordable medical pipetting devices th
 ## Goals
 
 - Create validated, open-source pipettes
-- Reduce costs to approximately 10% of commercial alternatives
+- Reduce costs to approximately 60% of commercial alternatives
 - Enable labs and clinics everywhere to access reliable tools
 - Release all CAD, firmware, and validation protocols openly
 

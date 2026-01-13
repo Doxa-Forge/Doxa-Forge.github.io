@@ -5,7 +5,6 @@ project:
   name: "OpenPipette"
   github_url: "https://github.com/Doxa-Forge/OpenPipette"
   organization: "Doxa-Forge"
-  institution: "UHasselt"
   contact_email: "contact@openpipette.org"
 
 status_bar:
@@ -23,26 +22,26 @@ navigation:
 hero:
   headline: "Open source medical equipment can save lives."
   subheadline: "Especially when it's affordable."
-  description: "We're building validated, open-source pipettes that cost 90% less than commercial alternatives. Our modular designs enable labs and clinics worldwide to access reliable, accurate pipetting tools without breaking the bank."
+  description: "We're building validated, open-source pipettes that cost 40% less than commercial alternatives. Our modular designs enable labs and clinics worldwide to access reliable, accurate pipetting tools without breaking the bank."
   cta_primary:
     text: "Get early access"
   cta_secondary:
     text: "Partner with us"
   features:
-    - "90% cost reduction"
+    - "40% cost reduction"
     - "Fully open source"
     - "Lab-validated accuracy"
 
 social_proof:
   items:
-    - "Student-led innovation at UHasselt"
+    - "Student-led innovation by UHasselt students"
     - "Open designs on GitHub"
     - "Target: 96-channel + modular handhelds"
 
 features:
   title: "Why it matters"
   items:
-    - title: "90% cost reduction"
+    - title: "40% cost reduction"
       description: "Our open-source designs eliminate proprietary markups, reducing pipette costs from thousands to hundreds of dollars. This makes critical lab equipment accessible to underfunded research and healthcare facilities."
     - title: "Fully open source"
       description: "Every design file, firmware, and validation protocol is publicly available. Labs can verify, modify, and manufacture pipettes independently—no vendor lock-in, complete transparency."
@@ -65,11 +64,11 @@ impact:
   description: "Commercial pipettes cost $2,000-$10,000. Our open-source designs reduce this to $200-$1,000—making critical lab equipment accessible to underfunded research facilities, clinics in developing regions, and educational institutions worldwide."
   metrics:
     - label: "Target cost reduction"
-      value: "90%"
+      value: "40%"
       note: "vs. commercial pipettes"
-    - label: "Modular configurations"
-      value: "5"
-      note: "1, 8, 12, 16, 96-channel"
+    - label: "Handheld modular configurations"
+      value: "4"
+      note: "1, 8, 12, 16 channels"
     - label: "Team members"
       value: "auto"
       note: "Contributors"
@@ -111,7 +110,7 @@ investors:
   error_message: "Something went wrong. Please try again or contact us directly."
 
 team:
-  title: "Team"
+  title: "Our Team"
   seeking: "Seeking supervisor and clinical advisor."
 
 footer:
