@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import DoxaForgeLanding from './DoxaForgeLanding.jsx'
 import ProjectsList from './ProjectsList.jsx'
@@ -48,7 +48,7 @@ function WikiPageRedirect() {
 function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<DoxaForgeLanding />} />
           <Route path="/projects" element={<ProjectsList />} />
@@ -65,7 +65,7 @@ function App() {
           {/* Redirect old hash-based wiki to new route */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </HelmetProvider>
   )
 }
